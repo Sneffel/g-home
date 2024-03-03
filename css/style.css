@@ -9,7 +9,7 @@ html,
 body {
     background-color: black;
     color: var(--primary-text-colour);
-    height: auto;
+    height: 100%;
 }
 
 html {

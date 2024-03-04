@@ -102,13 +102,25 @@ h1 .bi-music-note::before {
         left: 0;
         top: 3rem;
     }
+    ul{
+        padding-left: 1rem;
+    }
+}
+
+@media (width < 246px){
+    .box h2 i {
+        display: none;
+    }
+    #contatti{
+        margin-bottom: 1rem !important;
+    }
 }
 
 
 @media (height < 670px) {
     h1 {
-        bottom: 4rem;
-        top: initial
+        top: 2rem;
+        /* top: initial */
     }
 }
 

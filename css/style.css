@@ -17,15 +17,13 @@ html {
 }
 
 .red a {
-    color: hotpink
+    color: hotpink;
 }
 
 img,
 .box {
     border-radius: .25rem;
 }
-
-
 
 #hero1 {
     width: 100%;
@@ -54,7 +52,6 @@ img,
     top: 0;
 }
 
-
 h1 {
     right: 8rem;
     top: 5rem;
@@ -71,62 +68,56 @@ h1 .bi-music-note::before {
     right: 2rem;
     top: .5rem;
     font-size: 1rem;
-
 }
 
-@media (width <=1050px) {
+@media all and (max-width: 1050px) {
     h1 {
         font-size: 5rem;
         line-height: 3.3rem;
     }
 }
 
-
-
-@media (width < 700px) {
+@media all and (max-width: 700px) {
     h1 {
         font-size: 3rem;
         line-height: 2rem;
     }
 }
 
-@media (width < 496px) and (width > 454px),
-(width < 366px) {
+@media all and (max-width: 496px) and (min-width: 454px),
+       all and (max-width: 366px) {
     .bi-music-note {
         display: none;
     }
 }
 
-@media (width < 338px) {
+@media all and (max-width: 338px) {
     h1 {
         left: 1rem;
         top: 3rem;
     }
-    ul{
+    ul {
         padding-left: 1rem;
     }
 }
 
-@media (width < 246px){
+@media all and (max-width: 246px) {
     .box h2 i {
         display: none;
     }
-    #contatti{
+    #contatti {
         margin-bottom: 1rem !important;
     }
 }
 
-
-@media (height < 670px) {
+@media all and (max-height: 670px) {
     h1 {
         top: 2rem;
-        /* top: initial */
     }
 }
 
 .red .container {
     min-height: 80lvh;
-    /* outline: 2px red solid */
 }
 
 .box-container {
@@ -134,9 +125,7 @@ h1 .bi-music-note::before {
     top: 0;
     display: flex;
     flex-wrap: wrap;
-    /* Add flex-wrap property */
     align-items: flex-start;
-    /* Adjusted alignment */
     height: 100%;
     padding-bottom: .25rem;
 }
@@ -153,11 +142,10 @@ h1 .bi-music-note::before {
     -webkit-backdrop-filter: blur(5px) brightness(90%);
     height: auto;
     position: sticky;
-    top: .25rem
+    top: .25rem;
 }
 
-
-@media (width <=982px) {
+@media all and (max-width: 982px) {
     .box {
         flex-basis: calc(50% - 10px);
     }
@@ -178,7 +166,7 @@ h1 .bi-music-note::before {
     }
 }
 
-@media (width <=738px) {
+@media all and (max-width: 738px) {
     .box {
         flex-basis: calc(100% - 10px);
     }
@@ -196,22 +184,17 @@ h2 i:hover {
     opacity: .5;
 }
 
-
-
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 50rem;
     margin: 0 auto;
-
 }
-
 
 .image-gallery>img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-
     transition: scale 350ms ease, opacity 350ms linear;
 }
 
@@ -220,27 +203,24 @@ h2 i:hover {
     opacity: 0.7;
 }
 
-
 .user-select-text {
     user-select: text;
 }
 
-/* a#email:hover, */
 body,
 h1,
 h2,
 h3,
 #socials a {
-    color: var(--primary-text-colour)
+    color: var(--primary-text-colour);
 }
-
 
 a#email i.bi::before {
     color: inherit;
     padding-right: .5rem;
 }
 
-@media (width < 377px) {
+@media all and (max-width: 377px) {
     a#email i.bi::before {
         padding-inline: 0;
     }
@@ -255,8 +235,6 @@ a {
 a:hover {
     opacity: 0.9;
 }
-
-/* cursor */
 
 #blob {
     width: 300px;

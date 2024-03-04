@@ -99,8 +99,7 @@ h1 .bi-music-note::before {
 
 @media (width < 338px) {
     h1 {
-        right: 0;
-        left: 0;
+        left: 1rem;
         top: 3rem;
     }
     ul{

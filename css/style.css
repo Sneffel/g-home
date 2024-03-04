@@ -62,6 +62,7 @@ h1 {
     font-size: 8rem;
     line-height: 5rem;
     color: var(--primary-text-colour);
+    padding-inline: .5rem;
 }
 
 h1 .bi-music-note::before {
@@ -89,8 +90,8 @@ h1 .bi-music-note::before {
     }
 }
 
-@media (width < 480px) and (width > 454px),
-(width < 350px) {
+@media (width < 496px) and (width > 454px),
+(width < 366px) {
     .bi-music-note {
         display: none;
     }

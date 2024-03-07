@@ -24,21 +24,36 @@ img,
 .box {
     border-radius: .25rem;
 }
+picture{
+    overflow: hidden;
+}
+picture img {
+    height: 100%;
+    width: auto;
+    max-width: initial;
+    width: auto;
+    min-width: 100%;
+    height: 100lvh;
+    min-height: 100lvh;
+    object-fit: cover;
+    object-position: left;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 
 #hero1 {
-    width: 100%;
-    min-height: 100vh;
+    width: auto;
+    min-width: 100%;
+    height: 100lvh;
     min-height: 100lvh;
-    height: max-content;
     object-fit: cover;
     object-position: left;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     position: sticky;
     top: 0;
-    height: auto;
-    /* Adjusted height */
 }
+
 
 #hero2,
 .auto-hero {
@@ -59,7 +74,8 @@ header {
     color: var(--primary-text-colour);
     padding-inline: .5rem;
 }
-header h1{
+
+header h1 {
     font-size: 8rem;
     line-height: 5rem;
 }
@@ -72,7 +88,7 @@ header h1 .bi-music-note::before {
     font-size: 1rem;
 }
 
-@media all and (min-width: 1050px){
+@media all and (min-width: 1050px) {
     .box h2 i::before {
         font-size: 2.5rem
     }
@@ -83,7 +99,7 @@ header h1 .bi-music-note::before {
         font-size: 6rem;
         line-height: 3.3rem;
     }
-    
+
 }
 
 @media all and (max-width: 828px) {
@@ -94,14 +110,20 @@ header h1 .bi-music-note::before {
 }
 
 @media all and (max-width: 828px) {
-    header{
+    header {
         right: 2rem
+    }
+}
+
+@media all and (max-width: 550px) {
+    header {
+        top: 3rem;
     }
 }
 
 @media all and (max-width: 267px) and (min-width: 250px)
 /* ,all and (max-width: 366px) */
-        {
+    {
     .bi-music-note {
         display: none;
     }
@@ -110,11 +132,13 @@ header h1 .bi-music-note::before {
 @media all and (max-width: 420px) {
     header {
         right: 1rem;
-        top: 4rem;
+        top: 2rem;
     }
-    header h2{
+
+    header h2 {
         font-size: 1.5rem;
     }
+
     ul {
         padding-left: 1rem;
     }
@@ -124,10 +148,12 @@ header h1 .bi-music-note::before {
     header h1 {
         font-size: 2rem;
     }
-    header h2{
+
+    header h2 {
         font-size: 1.25rem;
         margin-right: 1rem;
     }
+
     header h1 .bi-music-note::before {
         right: 1.4rem;
         top: 0.5rem;
@@ -140,6 +166,7 @@ header h1 .bi-music-note::before {
     .box h2 i {
         display: none;
     }
+
     #contatti {
         margin-bottom: 1rem !important;
     }
@@ -258,7 +285,8 @@ a#email i.bi::before {
     padding-right: .5rem;
     transition: transform 0.25s ease-in-out;
 }
-a#email:hover i::before{
+
+a#email:hover i::before {
     transform: scale(1.1);
 }
 
@@ -268,7 +296,8 @@ a#email:hover i::before{
     }
 }
 
-a, i::before {
+a,
+i::before {
     text-decoration: none;
     color: beige;
     transition: opacity 0.3s ease-in-out;
@@ -318,52 +347,66 @@ a:hover {
 
 .shake a:hover i::before {
     animation: shake 1700ms;
-  }
-  @keyframes shake {
-    0% {
-      transform: rotateZ(0);
-    }
-    10% {
-      transform: rotateZ(-50deg);
-    }
-    20% {
-      transform: rotateZ(25deg);
-    }
-    30% {
-      transform: rotateZ(-16.6666666667deg);
-    }
-    40% {
-      transform: rotateZ(12.5deg);
-    }
-    50% {
-      transform: rotateZ(-10deg);
-    }
-    60% {
-      transform: rotateZ(8.3333333333deg);
-    }
-    70% {
-      transform: rotateZ(-7.1428571429deg);
-    }
-    80% {
-      transform: rotateZ(6.25deg);
-    }
-    90% {
-      transform: rotateZ(-5.5555555556deg);
-    }
-    100% {
-      transform: rotateZ(0);
-    }
-  }
-  
+}
 
-ul.rectangle, ul.rectangle ul {
+@keyframes shake {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    10% {
+        transform: rotateZ(-50deg);
+    }
+
+    20% {
+        transform: rotateZ(25deg);
+    }
+
+    30% {
+        transform: rotateZ(-16.6666666667deg);
+    }
+
+    40% {
+        transform: rotateZ(12.5deg);
+    }
+
+    50% {
+        transform: rotateZ(-10deg);
+    }
+
+    60% {
+        transform: rotateZ(8.3333333333deg);
+    }
+
+    70% {
+        transform: rotateZ(-7.1428571429deg);
+    }
+
+    80% {
+        transform: rotateZ(6.25deg);
+    }
+
+    90% {
+        transform: rotateZ(-5.5555555556deg);
+    }
+
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+
+ul.rectangle,
+ul.rectangle ul {
     list-style-type: none;
     padding: 0;
 }
+
 ul.rectangle li {
     position: relative;
     padding-left: 1rem;
 }
+
 ul.rectangle li:before {
     --down: .5rem;
     content: "";
@@ -375,9 +418,11 @@ ul.rectangle li:before {
     background-color: white;
     transform: translateY(-50%);
 }
+
 ul.rectangle li:first-child:before {
     top: calc(50% + var(--down));
 }
+
 ul.rectangle li:last-child:before {
     top: calc(50% - var(--down));
 }

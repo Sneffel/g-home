@@ -49,7 +49,7 @@
     <meta name="robots" content="index">
 </head>
 
-<body class="jost pb-1 position-relative">
+<body class="jost position-relative">
     <!-- <img id="hero1" src="img/fornione/webp/DSCF6116-Modifica.webp" alt="Guido Giordana"> -->
     <picture id="hero1">
         <!-- <source media="(max-width: 600px)" srcset="small-image.jpg"> -->
@@ -208,11 +208,14 @@
             </div>
         </div>
 
+        <div class="w-100 text-end pe-2" style="background: linear-gradient(to right, black, rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)));">
+            Made with <span class="text-danger">❤</span> by <a href="https://brunoneureiter.com">Bruno Neureiter</a>
+        </div>
 
     </section>
     <script>
         // autoscroll
-        const time_wait = 5000
+        const time_wait = 3 * 1000
         const scroll_duration = 1500;
         setTimeout(function () {
             if (!window.pageYOffset) {

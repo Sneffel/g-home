@@ -121,6 +121,9 @@ header h1 .bi-music-note::before {
 }
 
 @media all and (max-width: 550px) {
+    #made_with{
+        margin-top: 1rem;
+    }
     header {
         top: 3rem;
     }

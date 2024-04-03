@@ -5,6 +5,11 @@
     --primary-text-colour: #F0F8FF;
 }
 
+::selection {
+    background-color: beige;
+    color: #000;
+}
+
 html,
 body {
     background-color: black;
@@ -417,6 +422,7 @@ ul.rectangle li:before {
     height: 100%;
     background-color: beige;
     transform: translateY(-50%);
+    border-radius: .25rem;
 }
 
 ul.rectangle li:first-child:before {

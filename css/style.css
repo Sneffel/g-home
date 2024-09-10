@@ -29,9 +29,11 @@ img,
 .box {
     border-radius: .25rem;
 }
-picture{
+
+picture {
     overflow: hidden;
 }
+
 picture img {
     height: 100%;
     width: auto;
@@ -121,9 +123,10 @@ header h1 .bi-music-note::before {
 }
 
 @media all and (max-width: 550px) {
-    #made_with{
+    #made_with {
         margin-top: 1rem;
     }
+
     header {
         top: 3rem;
     }
@@ -434,4 +437,28 @@ ul.rectangle li:first-child:before {
 
 ul.rectangle li:last-child:before {
     top: calc(50% - var(--down));
+}
+
+
+
+details summary::after {
+    margin-left: -1rem !important;
+    margin-top: .5rem;  
+}
+
+.iframe-container{
+        position: relative;
+        padding-bottom: 56.25%;
+        width: 100%;
+        margin-bottom: .5rem;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }

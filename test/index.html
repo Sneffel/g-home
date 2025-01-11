@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Carousel</title>
+</head>
+
+<body>
+
+    <div id="carousel">
+        <div id="carousel-items"></div>
+        <button id="prev" disabled>Indietro</button>
+        <button id="next">Avanti</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        const itemsPerPage = 3;
+
+        // Function to load data
+        function loadData(page) {
+            fetch(`http://guido.ct.ws/recensioni/return.php?page=${page}`)
+                .then(response => response.json())
+                .then(data => {
+                    const carouselItems = document.getElementById('carousel-items');
+                    carouselItems.innerHTML = ''; // Clear current items
+
+                    // Loop through the data and display each item
+                    data.data.forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.textContent = `${item.user_type} - ${item.comment} (Rating: ${item.rating})`;
+                        carouselItems.appendChild(itemDiv);
+                    });
+
+                    totalPages = data.pagination.total_pages;
+                    currentPage = data.pagination.current_page;
+
+                    // Enable/disable buttons based on the current page
+                    document.getElementById('prev').disabled = currentPage <= 1;
+                    document.getElementById('next').disabled = currentPage >= totalPages;
+                })
+                .catch(error => console.error('Error loading data:', error));
+        }
+
+        // Event listeners for buttons
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentPage > 1) {
+                loadData(currentPage - 1);
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                loadData(currentPage + 1);
+            }
+        });
+
+        loadData(currentPage);
+    </script>
+
+</body>
+
+</html>

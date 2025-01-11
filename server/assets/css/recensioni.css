@@ -1,0 +1,51 @@
+:root {
+    color-scheme: dark;
+}
+
+
+.rating {
+    direction: rtl;
+    color: #ddd;
+    margin-top: -.5rem;
+    margin-top: -2.1ch;
+    margin-bottom: 1rem;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    font-size: 2rem !important;
+    margin-inline-end: 5px !important;
+}
+
+.rating input:checked~label {
+    color: #ffc107;
+}
+
+.rating label:hover,
+.rating label:hover~label {
+    opacity: 0.8;
+}
+
+.rating input:checked~label {
+    opacity: 1;
+}
+
+.rating input:checked~label:hover,
+.rating input:checked~label:hover~label {
+    opacity: 0.8;
+}
+
+
+#tick {
+    height: 1.25rem;
+    width: 1.25em;
+    fill: #ddd;
+    transition: opacity 1s ease-in;
+    opacity: 0;
+}

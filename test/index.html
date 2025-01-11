@@ -22,36 +22,39 @@
 
         function loadData(page) {
             fetch(`https://guido.ct.ws/recensioni/return.php?page=${page}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Check if there is an error in the response
                     if (data.error) {
-                        console.error('Error:', data.error); // Log the error message
-                        return; // Exit the function if an error occurred
+                        console.error('API Error:', data.error);
+                        return;
                     }
 
                     const carouselItems = document.getElementById('carousel-items');
                     carouselItems.innerHTML = ''; // Clear current items
 
-                    // Loop through the data and display each item
                     data.data.forEach(item => {
                         const itemDiv = document.createElement('div');
                         itemDiv.textContent = `${item.user_type} - ${item.comment} (Rating: ${item.rating})`;
                         carouselItems.appendChild(itemDiv);
                     });
 
-                    totalPages = data.pagination.total_pages;
-                    currentPage = data.pagination.current_page;
+                    const totalPages = data.pagination.total_pages;
+                    const currentPage = data.pagination.current_page;
 
-                    // Enable/disable buttons based on the current page
+                    // Enable/disable buttons based on pagination
                     document.getElementById('prev').disabled = currentPage <= 1;
                     document.getElementById('next').disabled = currentPage >= totalPages;
                 })
                 .catch(error => {
-                    // Log the error if the fetch itself fails
                     console.error('Error loading data:', error);
                 });
         }
+
 
 
         // Event listeners for buttons

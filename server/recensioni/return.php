@@ -1,11 +1,15 @@
 <?php
-header('Access-Control-Allow-Origin: https://guidogiordana.net');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization');
     exit(0);
 }
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 
 header('Content-Type: application/json');
@@ -23,7 +27,11 @@ try {
     ]);
 
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $page = max($page, 1);
+
     $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 3;
+    $limit = max($limit, 1);
+
 
     $offset = ($page - 1) * $limit;
 

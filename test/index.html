@@ -24,9 +24,16 @@
             fetch(`https://guido.ct.ws/recensioni/return.php?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
+                    // Check if there is an error in the response
+                    if (data.error) {
+                        console.error('Error:', data.error); // Log the error message
+                        return; // Exit the function if an error occurred
+                    }
+
                     const carouselItems = document.getElementById('carousel-items');
                     carouselItems.innerHTML = ''; // Clear current items
 
+                    // Loop through the data and display each item
                     data.data.forEach(item => {
                         const itemDiv = document.createElement('div');
                         itemDiv.textContent = `${item.user_type} - ${item.comment} (Rating: ${item.rating})`;
@@ -40,8 +47,12 @@
                     document.getElementById('prev').disabled = currentPage <= 1;
                     document.getElementById('next').disabled = currentPage >= totalPages;
                 })
-                .catch(error => console.error('Error loading data:', error));
+                .catch(error => {
+                    // Log the error if the fetch itself fails
+                    console.error('Error loading data:', error);
+                });
         }
+
 
         // Event listeners for buttons
         document.getElementById('prev').addEventListener('click', () => {

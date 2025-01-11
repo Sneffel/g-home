@@ -27,7 +27,6 @@ try {
 
     $offset = ($page - 1) * $limit;
 
-    // Count total approved entries to calculate if there are next/previous pages
     $countStmt = $pdo->query("SELECT COUNT(*) FROM recensioni WHERE approved = 'yes'");
     $totalCount = $countStmt->fetchColumn();
     $totalPages = ceil($totalCount / $limit);

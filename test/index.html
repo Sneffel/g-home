@@ -20,15 +20,13 @@
         let totalPages = 1;
         const itemsPerPage = 3;
 
-        // Function to load data
         function loadData(page) {
-            fetch(`http://guido.ct.ws/recensioni/return.php?page=${page}`)
+            fetch(`https://guido.ct.ws/recensioni/return.php?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
                     const carouselItems = document.getElementById('carousel-items');
                     carouselItems.innerHTML = ''; // Clear current items
 
-                    // Loop through the data and display each item
                     data.data.forEach(item => {
                         const itemDiv = document.createElement('div');
                         itemDiv.textContent = `${item.user_type} - ${item.comment} (Rating: ${item.rating})`;

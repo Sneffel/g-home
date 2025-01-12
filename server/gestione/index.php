@@ -63,10 +63,8 @@ try {
 
 define('MANDA_LIVE', '<article class="text-end">' .
     '<h2>Carica sul sito</h2>' .
-    '<a role="button" href="send_outside.php">Manda live</a>' .
+    '<a href="send_outside.php" id="manda-live-btn"><button>Manda live</button></a>' .
     '</article>');
-
-
 ?>
 
 <!DOCTYPE html>
@@ -171,6 +169,43 @@ define('MANDA_LIVE', '<article class="text-end">' .
             </div>
         <?php endif; ?>
     </main>
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let aHref = document.getElementById('manda-live-btn');
+            let btn = aHref.querySelector('button');
+            aHref.addEventListener('click', (e) => {
+                e.preventDefault();
+                let text = btn.textContent;
+                btn.setAttribute('aria-busy', 'true');
+                btn.textContent = '';
+                aHref.disabled = true;
+                fetch(aHref.href)
+                    .then(res => res.text())
+                    .then(res => {
+                        aHref.removeAttribute('aria-busy');
+                        if (res.trim() !== 'ok') alert(res);
+                        aHref.disabled = false;
+
+                        btn.textContent = "OK!";
+                        btn.setAttribute('aria-busy', 'false');
+
+                        setTimeout(() => btn.textContent = text, 1000);
+                    })
+                    .catch(() => {
+                        btn.removeAttribute('aria-busy');
+                        btn.textContent = text;
+                        alert('An error occurred.');
+                    });
+            });
+        });
+    </script>
+
 
 </body>
 

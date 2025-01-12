@@ -1,1 +1,2 @@
-ErrorDocument 404 /assets/not_found.php
+ErrorDocument 404 /assets/errors/404.php
+ErrorDocument 403 /assets/errors/403.php

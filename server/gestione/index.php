@@ -60,6 +60,13 @@ try {
     exit;
 }
 
+
+define('MANDA_LIVE', '<article class="text-end">' .
+    '<h2>Carica sul sito</h2>' .
+    '<a role="button" href="send_outside.php">Manda live</a>' .
+    '</article>');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +79,7 @@ try {
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css">
+    <link rel="stylesheet" href="../assets/css/gestione.css">
 </head>
 
 <body>
@@ -81,78 +89,86 @@ try {
     </header>
 
     <main>
+
+
+        <?= MANDA_LIVE ?>
+
+
+
         <h2>Approvazione</h2>
-        <!-- Section to approve/reject reviews -->
         <?php if (empty($messages)) : ?>
             <article>
                 <p>Nessuna recensione da approvare</p>
             </article>
         <?php else: ?>
-            <table>
-                <tr>
-                    <th>È</th>
-                    <th>Commento</th>
-                    <th>Valutazione</th>
-                    <th>Azione</th>
-                </tr>
-                <?php foreach ($messages as $message) : ?>
+            <div class="overflow-auto">
+                <table>
                     <tr>
-                        <?php
-                        $userType = str_replace('-', ' ', $message['user_type']);
-                        $userType = ucfirst($userType);
-                        $userType = str_replace(' cpm', ' CPM', $userType);
-                        ?>
-                        <td><?php echo htmlspecialchars($userType); ?></td>
-                        <td><?php echo htmlspecialchars($message['comment']); ?></td>
-                        <td><?php echo $message['rating']; ?>/5</td>
-                        <td>
-                            <form action="./" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
-                                <select name="approved">
-                                    <option value="yes">Approva</option>
-                                    <option value="no">Rifiuta</option>
-                                </select>
-                                <button type="submit" name="approve">Conferma</button>
-                            </form>
-                        </td>
+                        <th>Categoria</th>
+                        <th>Commento</th>
+                        <th>Valutazione</th>
+                        <th>Azione</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
+                    <?php foreach ($messages as $message) : ?>
+                        <tr>
+                            <?php
+                            $userType = str_replace('-', ' ', $message['user_type']);
+                            $userType = ucfirst($userType);
+                            $userType = str_replace(' cpm', ' CPM', $userType);
+                            ?>
+                            <td><?php echo htmlspecialchars($userType); ?></td>
+                            <td><?php echo htmlspecialchars($message['comment']); ?></td>
+                            <td><?php echo $message['rating']; ?>/5</td>
+                            <td>
+                                <form action="./" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
+                                    <select name="approved">
+                                        <option value="yes">Approva</option>
+                                        <option value="no">Rifiuta</option>
+                                    </select>
+                                    <button type="submit" name="approve">Conferma</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
         <?php endif; ?>
 
-        <!-- Section for approved reviews -->
         <h2>Recensioni Approvate</h2>
         <?php if (empty($approvedMessages)) : ?>
             <article>
                 <p>Nessuna recensione approvata</p>
             </article>
         <?php else: ?>
-            <table>
-                <tr>
-                    <th>È</th>
-                    <th>Commento</th>
-                    <th>Valutazione</th>
-                    <th>Rimuovi</th>
-                </tr>
-                <?php foreach ($approvedMessages as $message) : ?>
+            <div class="overflow-auto">
+                <table>
                     <tr>
-                        <?php
-                        $userType = str_replace('-', ' ', $message['user_type']);
-                        $userType = str_replace('cpm', 'CPM', $userType);
-                        $userType = ucfirst($userType);
-                        ?>
-                        <td><?php echo htmlspecialchars($userType); ?></td>
-                        <td><?php echo htmlspecialchars($message['comment']); ?></td>
-                        <td><?php echo $message['rating']; ?></td>
-                        <td>
-                            <form action="./" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
-                                <button type="submit" name="remove">Rimuovi</button>
-                            </form>
-                        </td>
+                        <th>Categoria</th>
+                        <th>Commento</th>
+                        <th>Valutazione</th>
+                        <th>Rimuovi</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
+                    <?php foreach ($approvedMessages as $message) : ?>
+                        <tr>
+                            <?php
+                            $userType = str_replace('-', ' ', $message['user_type']);
+                            $userType = str_replace('cpm', 'CPM', $userType);
+                            $userType = ucfirst($userType);
+                            ?>
+                            <td><?php echo htmlspecialchars($userType); ?></td>
+                            <td><?php echo htmlspecialchars($message['comment']); ?></td>
+                            <td><?php echo $message['rating']; ?></td>
+                            <td>
+                                <form action="./" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
+                                    <button type="submit" name="remove">Rimuovi</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
         <?php endif; ?>
     </main>
 

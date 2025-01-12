@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recensisci Guido</title>
 
+    <meta property="og:title" content="Recensisci Guido">
+    <meta property="og:description" content="Cosa ne pensi?">
+    <meta property="og:url" content="https://guido.ct.ws">
+    <meta property="og:type" content="website">
 
+
+    <meta property="og:title" content="Recensisci Guido">
+    <meta property="og:description" content="Cosa ne pensi?">
+    <meta property="og:url" content="https://guido.ct.ws">
 
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css">
-
 
     <style>
         <?php require 'assets/css/recensioni.css' ?>

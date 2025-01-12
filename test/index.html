@@ -21,7 +21,12 @@
         const itemsPerPage = 3;
 
         function loadData(page) {
-            fetch(`https://guido.ct.ws/recensioni/return.php?page=${page}`)
+            fetch(`https://guido.ct.ws/recensioni/return.php?page=${page}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
@@ -33,20 +38,15 @@
                         console.error('API Error:', data.error);
                         return;
                     }
-
                     const carouselItems = document.getElementById('carousel-items');
-                    carouselItems.innerHTML = ''; // Clear current items
-
+                    carouselItems.innerHTML = '';
                     data.data.forEach(item => {
                         const itemDiv = document.createElement('div');
                         itemDiv.textContent = `${item.user_type} - ${item.comment} (Rating: ${item.rating})`;
                         carouselItems.appendChild(itemDiv);
                     });
-
                     const totalPages = data.pagination.total_pages;
                     const currentPage = data.pagination.current_page;
-
-                    // Enable/disable buttons based on pagination
                     document.getElementById('prev').disabled = currentPage <= 1;
                     document.getElementById('next').disabled = currentPage >= totalPages;
                 })
@@ -54,6 +54,7 @@
                     console.error('Error loading data:', error);
                 });
         }
+
 
 
 

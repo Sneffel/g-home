@@ -64,6 +64,9 @@ try {
 define('MANDA_LIVE', '<article class="text-end">' .
     '<h2>Carica sul sito</h2>' .
     '<a href="send_outside.php" id="manda-live-btn"><button>Manda live</button></a>' .
+    '<p style="line-height: 1.25;margin-top:.5rem">Dopo aver fatto tutte le modifiche<br>' .
+    'ricordati di premere il <em>Manda live</em><br>' .
+    'per sincronizzare con il sito</p>' .
     '</article>');
 ?>
 
@@ -200,7 +203,7 @@ define('MANDA_LIVE', '<article class="text-end">' .
                     .catch(() => {
                         btn.removeAttribute('aria-busy');
                         btn.textContent = text;
-                        alert('An error occurred.');
+                        alert('Errore? Riprova!');
                     });
             });
         });

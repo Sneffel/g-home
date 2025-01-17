@@ -201,6 +201,7 @@ header h1 .bi-music-note::before {
     align-items: flex-start;
     height: 100%;
     padding-bottom: .25rem;
+    gap: 10px;
 }
 
 .box {
@@ -208,7 +209,7 @@ header h1 .bi-music-note::before {
     background-color: hsla(0, 0%, 100%, 0.2);
     padding: 1em;
     padding-bottom: 1rem;
-    margin: 5px;
+    /* margin: 5px; */
     box-sizing: border-box;
     height: ma-content;
     backdrop-filter: blur(5px) brightness(90%);
@@ -443,22 +444,37 @@ ul.rectangle li:last-child:before {
 
 details summary::after {
     margin-left: -1rem !important;
-    margin-top: .5rem;  
+    margin-top: .5rem;
 }
 
-.iframe-container{
-        position: relative;
-        padding-bottom: 56.25%;
-        width: 100%;
-        margin-bottom: .5rem;
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    width: 100%;
+    margin-bottom: .5rem;
 }
 
 .iframe-container iframe {
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
+}
+
+
+
+
+:where(button, [type="submit"], [type="reset"], [type="button"], [role="button"])[disabled],
+:where(fieldset[disabled]) :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]) {
+    opacity: .4;
+    filter: brightness(.7);
+    pointer-events: none;
+}
+
+[aria-disabled="true"],
+[disabled] {
+    cursor: not-allowed;
 }

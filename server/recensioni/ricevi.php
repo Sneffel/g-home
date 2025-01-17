@@ -1,4 +1,8 @@
 <?php
+setlocale(LC_TIME, 'it_IT.UTF-8'); // For date and time formatting in Italian
+setlocale(LC_ALL, 'it_IT.UTF-8'); // For all locale settings (currency, time, etc.)
+date_default_timezone_set('Europe/Rome');
+
 
 $dbHost = 'sql301.infinityfree.com'; # cspell: disable-line
 $dbName = 'if0_38085340_guido';
@@ -11,6 +15,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
+    $pdo->exec("SET time_zone = '+01:00'"); // Rome's time zone offset is UTC+1
 
 
     $createTableSQL = "
@@ -20,9 +25,10 @@ try {
             comment TEXT NOT NULL,
             rating INT NOT NULL,
             approved ENUM('not yet', 'yes', 'no') DEFAULT 'not yet',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            created_at DATETIME DEFAULT NULL
         )
     ";
+
     $pdo->exec($createTableSQL);
 
     $form = [
@@ -34,18 +40,23 @@ try {
 
     if (!empty($form['user-type']) && !empty($form['comment']) && $form['rating'] > 0) {
         $insertSQL = "
-            INSERT INTO recensioni (user_type, comment, rating, approved)
-            VALUES (:user_type, :comment, :rating, :approved)
-        ";
+    INSERT INTO recensioni (user_type, comment, rating, approved, created_at)
+    VALUES (:user_type, :comment, :rating, :approved, :created_at)
+";
+
+        $createdAt = date('Y-m-d H:i:s');
+
         $stmt = $pdo->prepare($insertSQL);
         $stmt->execute([
             ':user_type' => $form['user-type'],
             ':comment' => $form['comment'],
             ':rating' => $form['rating'],
             ':approved' => $form['approved'],
+            ':created_at' => $createdAt,
         ]);
-        // echo "Data inserted successfully!";
+
         header("Location: ok.html");
+        exit;
     } else {
         echo "Invalid data provided.";
     }

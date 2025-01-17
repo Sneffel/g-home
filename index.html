@@ -24,6 +24,7 @@
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/pico.css" rel="stylesheet">
+    <link href="css/recensioni.css  " rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -51,22 +52,37 @@
     <meta name="robots" content="index">
 
     <meta name="darkreader-lock">
+
+    <link rel="preconnect" href="https://txt.altervista.org">
 </head>
 
 <body class="jost position-relative">
-    <!-- <img id="hero1" src="img/fornione/webp/DSCF6116-Modifica.webp" alt="Guido Giordana"> -->
     <picture id="hero1">
-        <!-- <source media="(max-width: 600px)" srcset="small-image.jpg"> -->
         <source media="(max-width: 828px)" srcset="img/ritratto.webp">
         <source media="(min-width: 829px)" srcset="img/DSCF2303_edit3.webp">
         <img src="img/DSCF2303_edit3.webp" alt="">
     </picture>
     <header class=" position-absolute">
-        <h1 class="alegreya fw500">Guido Giordana <i class="bi bi-music-note"></i>
-            <h2>Cantante, Vocal Coach e Didatta</h2>
+        <h1 class="alegreya fw500">Guido Giordana <i class="bi bi-music-note"></i></h1>
+        <h2>Cantante, Vocal Coach e Didatta</h2>
     </header>
-    </h1>
+
     <div class="container box-container" id="container-1">
+
+
+        <div id="carousel">
+            <!-- <h2 class="mb-2 mb-sm-4 mb-md-3 text-center text-sm-start">Recensioni</h2> -->
+            <div id="carousel-items"></div>
+            <div class="nav_btns">
+                <button id="prev" disabled>Indietro</button>
+                <button id="next">Avanti</button>
+            </div>
+        </div>
+
+
+
+
+
         <div class="box">
             <h2><i class="bi bi-journal-bookmark-fill"></i> Studi</h2>
             <ul>
@@ -306,6 +322,222 @@
             blob.style.top = `${dets.y - half}px`;
         });
 
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        let itemsPerPage = 3;
+        let biggestMessageId = 0;
+
+        function formatUserType(userType) {
+            const correspondence = {
+                'studente-cpm': 'Studente CPM',
+                'studente-esterno': 'Studente esterno',
+                'altro': 'Altro'
+            };
+
+            return correspondence[userType] || 'N/D';
+        }
+
+
+
+        function timeAgo(dateString) {
+            const now = new Date();
+            const date = new Date(dateString);
+            const seconds = Math.floor((now - date) / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            const months = Math.floor(days / 30);
+            const years = Math.floor(days / 365);
+
+            if (years > 0) {
+                return years === 1 ? "un anno fa" : `${years} anni fa`;
+            } else if (months > 0) {
+                return months === 1 ? "un mese fa" : `${months} mesi fa`;
+            } else if (days > 0) {
+                return days === 1 ? "un giorno fa" : `${days} giorni fa`;
+            } else if (hours > 0) {
+                return hours === 1 ? "un'ora fa" : `${hours} ore fa`;
+            } else if (minutes > 0) {
+                return minutes === 1 ? "un minuto fa" : `${minutes} minuti fa`;
+            } else {
+                return seconds === 1 ? "un secondo fa" : `${seconds} secondi fa`;
+            }
+        }
+
+
+
+
+
+        function getLoopedNumber($number, $total = 33) {
+            return (($number - 1) % $total) + 1;
+        }
+
+        function avatarUrl(reviewId) {
+            let imgId = getLoopedNumber(reviewId);
+            let img = '';
+
+            // img += `https://guidogiordana.net`;
+            img += `img/avatars/${reviewId}.webp`;
+
+            return img;
+        }
+
+
+
+
+        function loadData(page) {
+            let API_URL = `https://txt.altervista.org/clienti/guido/recensioni_api.php?page=${page}`;
+
+            fetch(API_URL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+
+                    if (data.error) {
+                        console.error('API Error:', data.error);
+                        return;
+                    }
+
+                    let totalItems = data.pagination.total_items;
+
+                    const carouselItems = document.getElementById('carousel-items');
+                    carouselItems.innerHTML = '';
+
+                    data.data.forEach(item => {
+                        const recensione = document.createElement('div');
+                        let id = item.message_id;
+                        biggestMessageId = id;
+
+                        let stelle = '';
+                        const numberOfStars = item.rating;
+
+                        for (let i = 0; i < 5; i++) {
+                            stelle += `<i class="bi ${i < numberOfStars ? 'bi-star-fill' : 'bi-star'}"></i>`;
+                        }
+
+                        let img = `<img class="avatar" src="${avatarUrl(id)}" alt="avatar ${id}">`;
+
+                        let tempoFa = `<p class="quando" title="${item.created_at}"><em>${timeAgo(item.created_at)}</em></p>`;
+
+                        let formattedComment = item.comment
+                            .trim()
+                            .split('\n')
+                            .map(paragraph => `<p>${paragraph}</p>`)
+                            .join('');
+
+                        let truncatedComment = item.comment.length > 70
+                            ? `<p>${item.comment.slice(0, 70).trim()}...</p>`
+                            : ``;
+
+
+                        let leggiTutto = document.createElement('a');
+                        leggiTutto.textContent = 'leggi tutto';
+                        leggiTutto.href = '#';
+                        leggiTutto.classList.add('read_more');
+                        leggiTutto.onclick = e => { e.preventDefault(); alert(item.comment.trim()); };
+
+                        let comment = truncatedComment
+                            ? `<div class="commento">
+                                    <div class="full">${formattedComment}</div>
+                                    <div class="truncated">${truncatedComment}</div>
+                                </div>`
+                            : `<div class="commento"><div>${formattedComment}</div></div>`;
+
+
+
+
+
+                        let tipoStudente = item.user_type;
+
+
+
+                        recensione.innerHTML += `<article>
+                        <div class="stelle">${stelle}</div>
+                        <div class="user-line">${img} <span class="user">${formatUserType(tipoStudente)}</span></div>
+                        ${tempoFa}
+                        ${comment}
+                        </article>`;
+
+
+
+
+
+
+                        carouselItems.appendChild(recensione);
+
+                        if (truncatedComment) {
+                            const truncatedDiv = document.querySelector('.commento .truncated');
+                            truncatedDiv && truncatedDiv.insertAdjacentElement('afterend', leggiTutto);
+                        }
+                    });
+
+                    totalPages = data.pagination.total_pages;
+                    currentPage = data.pagination.current_page;
+                    document.getElementById('prev').disabled = currentPage <= 1;
+                    document.getElementById('next').disabled = currentPage >= totalPages;
+
+                    if (totalItems <= 0) {
+                        let carousel = document.getElementById('carousel');
+                        carousel.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                });
+        }
+
+        function preloadImages() {
+            const avatarUrls = [
+                avatarUrl(biggestMessageId + 1),
+                avatarUrl(biggestMessageId + 2),
+                avatarUrl(biggestMessageId + 3)
+            ];
+
+            avatarUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+                console.log("preloading", url)
+            });
+        }
+
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentPage > 1) {
+                let goingTo = currentPage - 1;
+                loadData(goingTo);
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                let goingTo = currentPage + 1;
+                preloadImages();
+                loadData(goingTo);
+            }
+        });
+
+        loadData(currentPage);
     </script>
 </body>
 

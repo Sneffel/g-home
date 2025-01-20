@@ -11,7 +11,7 @@
 #carousel-items {
     --avatar-size: 30px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 8px;
     margin-bottom: 7px;
 
@@ -31,7 +31,7 @@
     background-color: hsla(48, 5%, 18%, 0.33);
 
     height: 100%;
-    padding: 1rem;
+    padding: .75rem 1rem 1.25rem;
     border-radius: .25rem;
 
 
@@ -138,7 +138,7 @@
     }
 
     #carousel-items>div article {
-        padding: 14px;
+        padding: 9px 14px 16px;
     }
 
     #carousel p.quando {

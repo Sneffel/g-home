@@ -71,7 +71,6 @@
 
 
         <div id="carousel">
-            <!-- <h2 class="mb-2 mb-sm-4 mb-md-3 text-center text-sm-start">Recensioni</h2> -->
             <div id="carousel-items"></div>
             <div class="nav_btns">
                 <button id="prev" disabled>Indietro</button>
@@ -384,155 +383,160 @@
             return (($number - 1) % $total) + 1;
         }
 
+
         function avatarUrl(reviewId) {
             let imgId = getLoopedNumber(reviewId);
+            console.log("image id from-to:", reviewId, imgId)
             let img = '';
 
             // img += `https://guidogiordana.net`;
-            img += `img/avatars/${reviewId}.webp`;
+            img += `img/avatars/${imgId}.webp`;
 
             return img;
         }
 
+        function decodeHtml(html) {
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = html;
+            return textarea.value;
+        }
 
 
+        async function loadData(page) {
+            try {
+                let API_URL = `https://txt.altervista.org/clienti/guido/recensioni_api.php?page=${page}`;
+                const response = await fetch(API_URL, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
 
-        function loadData(page) {
-            let API_URL = `https://txt.altervista.org/clienti/guido/recensioni_api.php?page=${page}`;
-
-            fetch(API_URL, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
+
+                const data = await response.json();
+
+                if (data.error) {
+                    console.error('API Error:', data.error);
+                    return;
+                }
+
+                let totalItems = data.pagination.total_items;
+
+                const carouselItems = document.getElementById('carousel-items');
+                carouselItems.innerHTML = '';
+
+                data.data.forEach(item => {
+                    const recensione = document.createElement('div');
+                    let id = item.message_id;
+                    biggestMessageId = id;
+
+                    let stelle = '';
+                    const numberOfStars = item.rating;
+
+                    for (let i = 0; i < 5; i++) {
+                        stelle += `<i class="bi ${i < numberOfStars ? 'bi-star-fill' : 'bi-star'}"></i>`;
                     }
-                    return response.json();
-                })
-                .then(data => {
 
-                    if (data.error) {
-                        console.error('API Error:', data.error);
-                        return;
-                    }
+                    let img = `<img class="avatar" src="${avatarUrl(id)}" alt="avatar ${id}">`;
 
-                    let totalItems = data.pagination.total_items;
+                    let tempoFa = `<p class="quando" title="${item.created_at}"><em>${timeAgo(item.created_at)}</em></p>`;
 
-                    const carouselItems = document.getElementById('carousel-items');
-                    carouselItems.innerHTML = '';
+                    let formattedComment = item.comment
+                        .trim()
+                        .split('\n')
+                        .map(paragraph => `<p>${paragraph}</p>`)
+                        .join('');
 
-                    data.data.forEach(item => {
-                        const recensione = document.createElement('div');
-                        let id = item.message_id;
-                        biggestMessageId = id;
-
-                        let stelle = '';
-                        const numberOfStars = item.rating;
-
-                        for (let i = 0; i < 5; i++) {
-                            stelle += `<i class="bi ${i < numberOfStars ? 'bi-star-fill' : 'bi-star'}"></i>`;
-                        }
-
-                        let img = `<img class="avatar" src="${avatarUrl(id)}" alt="avatar ${id}">`;
-
-                        let tempoFa = `<p class="quando" title="${item.created_at}"><em>${timeAgo(item.created_at)}</em></p>`;
-
-                        let formattedComment = item.comment
+                    let truncatedComment = item.comment.length > 70
+                        ? item.comment
+                            .slice(0, 70)
                             .trim()
                             .split('\n')
-                            .map(paragraph => `<p>${paragraph}</p>`)
-                            .join('');
+                            .map((paragraph, index, array) =>
+                                `<p>${paragraph}${index === array.length - 1 ? '&mldr;' : ''}</p>`
+                            )
+                            .join('')
+                        : '';
 
-                        let truncatedComment = item.comment.length > 70
-                            ? item.comment
-                                .slice(0, 70)
-                                .trim()
-                                .split('\n')
-                                .map((paragraph, index, array) =>
-                                    `<p>${paragraph}${index === array.length - 1 ? '&mldr;' : ''}</p>`
-                                )
-                                .join('')
-                            : '';
+                    let leggiTutto = document.createElement('a');
+                    leggiTutto.textContent = 'leggi tutto';
+                    leggiTutto.href = '#';
+                    leggiTutto.classList.add('read_more');
+                    leggiTutto.onclick = e => {
+                        e.preventDefault();
+                        alert(decodeHtml(item.comment.trim()));
+                    };
+                    console.log(item.comment)
 
+                    let comment = truncatedComment
+                        ? `<div class="commento">
+                        <div class="full">${formattedComment}</div>
+                        <div class="truncated">${truncatedComment}</div>
+                    </div>`
+                        : `<div class="commento"><div>${formattedComment}</div></div>`;
 
+                    let tipoStudente = item.user_type;
 
-                        let leggiTutto = document.createElement('a');
-                        leggiTutto.textContent = 'leggi tutto';
-                        leggiTutto.href = '#';
-                        leggiTutto.classList.add('read_more');
-                        leggiTutto.onclick = e => { e.preventDefault(); alert(item.comment.trim()); };
+                    recensione.innerHTML += `<article data-id="${id}">
+            <div class="stelle">${stelle}</div>
+            <div class="user-line">${img} <span class="user">${formatUserType(tipoStudente)}</span></div>
+            ${tempoFa}
+            ${comment}
+            </article>`;
 
-                        let comment = truncatedComment
-                            ? `<div class="commento">
-                                    <div class="full">${formattedComment}</div>
-                                    <div class="truncated">${truncatedComment}</div>
-                                </div>`
-                            : `<div class="commento"><div>${formattedComment}</div></div>`;
+                    carouselItems.appendChild(recensione);
 
-
-                        let tipoStudente = item.user_type;
-
-                        recensione.innerHTML += `<article data-id="${id}">
-                        <div class="stelle">${stelle}</div>
-                        <div class="user-line">${img} <span class="user">${formatUserType(tipoStudente)}</span></div>
-                        ${tempoFa}
-                        ${comment}
-                        </article>`;
-
-                        carouselItems.appendChild(recensione);
-
-                        if (truncatedComment) {
-                            let truncatedDiv = document.querySelector(`article[data-id="${id}"] .commento .truncated`);
-                            truncatedDiv && truncatedDiv.insertAdjacentElement('afterend', leggiTutto);
-                        }
-                    });
-
-
-                    totalPages = data.pagination.total_pages;
-                    currentPage = data.pagination.current_page;
-                    document.getElementById('prev').disabled = currentPage <= 1;
-                    document.getElementById('next').disabled = currentPage >= totalPages;
-
-                    if (totalItems <= 0) {
-                        let carousel = document.getElementById('carousel');
-                        carousel.style.display = 'none';
+                    if (truncatedComment) {
+                        let truncatedDiv = document.querySelector(`article[data-id="${id}"] .commento .truncated`);
+                        truncatedDiv && truncatedDiv.insertAdjacentElement('afterend', leggiTutto);
                     }
-                })
-                .catch(error => {
-                    console.error('Error loading data:', error);
                 });
+
+                totalPages = data.pagination.total_pages;
+                currentPage = data.pagination.current_page;
+                document.getElementById('prev').disabled = currentPage <= 1;
+                document.getElementById('next').disabled = currentPage >= totalPages;
+
+                if (totalItems <= 0) {
+                    let carousel = document.getElementById('carousel');
+                    carousel.style.display = 'none';
+                }
+
+                console.log("Finito carico data");
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
         }
 
-        function preloadImages() {
-            const avatarUrls = [
-                avatarUrl(biggestMessageId + 1),
-                avatarUrl(biggestMessageId + 2),
-                avatarUrl(biggestMessageId + 3)
-            ];
-
-            avatarUrls.forEach(url => {
-                const img = new Image();
-                img.src = url;
-                console.log("preloading", url)
-            });
+        async function preloadImages() {
+            for (let i = 1; i <= 3; i++) {
+                const id = biggestMessageId + i;
+                if (id <= 33) {
+                    const img = new Image();
+                    img.src = avatarUrl(id);
+                    console.log("preloading", img.src);
+                }
+            }
         }
 
 
-        document.getElementById('prev').addEventListener('click', () => {
+
+
+        document.getElementById('prev').addEventListener('click', async () => {
             if (currentPage > 1) {
                 let goingTo = currentPage - 1;
                 loadData(goingTo);
             }
         });
 
-        document.getElementById('next').addEventListener('click', () => {
+        document.getElementById('next').addEventListener('click', async () => {
             if (currentPage < totalPages) {
                 let goingTo = currentPage + 1;
+                await loadData(goingTo);
                 preloadImages();
-                loadData(goingTo);
             }
         });
 

@@ -67,9 +67,9 @@
 
 #carousel-items .user-line {
     margin: 3px auto 1px;
-    gap: 8px;
+    gap: 7px;
     display: flex;
-    align-items: end;
+    align-items: start;
 }
 
 #carousel-items>div article .commento p {
@@ -87,6 +87,17 @@
     width: 33%;
     --pico-border-color: var(--bg-color);
     background-color: var(--bg-color);
+    transition: filter .25s ease, opacity .5s ease;
+
+    &:hover:not([disabled]) {
+        filter: contrast(1.5) brightness(1.05);
+    }
+
+    &[disabled] {
+        /* cursor: default;
+        pointer-events: all; */
+        opacity: 0;
+    }
 }
 
 #carousel-items .commento {
@@ -123,6 +134,11 @@
 @media (max-width: 450px) {
     #carousel-items {
         --avatar-size: 25px;
+        gap: 3px;
+    }
+
+    #carousel-items>div article {
+        padding: 14px;
     }
 
     #carousel p.quando {
@@ -141,12 +157,17 @@
         min-height: 32px;
     }
 
+    #carousel-items .user-line .user {
+        font-size: .9rem;
+    }
+
     #carousel-items .commento .full {
         display: none;
     }
 
     #carousel-items .commento .truncated {
         display: block;
+        hyphens: auto;
     }
 
     #carousel-items .commento .read_more {

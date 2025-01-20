@@ -20,11 +20,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link href="css/style.css?v2" rel="stylesheet">
-    <link href="css/font.css" rel="stylesheet">
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="css/pico.css" rel="stylesheet">
-    <link href="css/recensioni.css" rel="stylesheet">
+    <link href="css/style.css?v3" rel="stylesheet">
+    <link href="css/font.css?v3" rel="stylesheet">
+    <link href="css/reset.css?v3" rel="stylesheet">
+    <link href="css/pico.css?v3" rel="stylesheet">
+    <link href="css/recensioni.css?v3" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -447,8 +447,16 @@
                             .join('');
 
                         let truncatedComment = item.comment.length > 70
-                            ? `<p>${item.comment.slice(0, 70).trim()}...</p>`
-                            : ``;
+                            ? item.comment
+                                .slice(0, 70)
+                                .trim()
+                                .split('\n')
+                                .map((paragraph, index, array) =>
+                                    `<p>${paragraph}${index === array.length - 1 ? '&mldr;' : ''}</p>`
+                                )
+                                .join('')
+                            : '';
+
 
 
                         let leggiTutto = document.createElement('a');
@@ -465,32 +473,23 @@
                             : `<div class="commento"><div>${formattedComment}</div></div>`;
 
 
-
-
-
                         let tipoStudente = item.user_type;
 
-
-
-                        recensione.innerHTML += `<article>
+                        recensione.innerHTML += `<article data-id="${id}">
                         <div class="stelle">${stelle}</div>
                         <div class="user-line">${img} <span class="user">${formatUserType(tipoStudente)}</span></div>
                         ${tempoFa}
                         ${comment}
                         </article>`;
 
-
-
-
-
-
                         carouselItems.appendChild(recensione);
 
                         if (truncatedComment) {
-                            const truncatedDiv = document.querySelector('.commento .truncated');
+                            let truncatedDiv = document.querySelector(`article[data-id="${id}"] .commento .truncated`);
                             truncatedDiv && truncatedDiv.insertAdjacentElement('afterend', leggiTutto);
                         }
                     });
+
 
                     totalPages = data.pagination.total_pages;
                     currentPage = data.pagination.current_page;

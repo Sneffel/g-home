@@ -95,6 +95,34 @@ header h1 .bi-music-note::before {
     font-size: 1rem;
 }
 
+
+
+
+
+
+.translations {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+}
+
+.translations img {
+    height: 37px;
+    cursor: pointer;
+    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media all and (min-width: 1050px) {
     .box h2 i::before {
         font-size: 2.5rem

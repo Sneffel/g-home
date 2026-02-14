@@ -1,0 +1,278 @@
+{
+    "subtitle": {
+        "it": "Cantante, Vocal Coach e Didatta",
+        "en": "Singer, Vocal Coach and Teacher"
+    },
+    "nav-prev": {
+        "it": "Indietro",
+        "en": "Back"
+    },
+    "nav-next": {
+        "it": "Avanti",
+        "en": "Next"
+    },
+    "study-studies-title": {
+        "it": "Studi",
+        "en": "Studies"
+    },
+    "study-studies-liceo": {
+        "it": "Diploma di Scuola Media Superiore, Liceo Coreutico Musicale “Ego Bianchi” di Cuneo",
+        "en": "High School Diploma, “Ego Bianchi” Musical Choreutic Lyceum of Cuneo"
+    },
+    "study-studies-cpm": {
+        "it": "Diplomato al CPM Music Institute",
+        "en": "Graduated from CPM Music Institute"
+    },
+    "study-studies-guildhall": {
+        "it": "Diplomato alla “Guildhall School of Music and Drama” di Londra, Masterclass Professionale con specializzazione in coralità classica",
+        "en": "Graduated from Guildhall School of Music and Drama, London, Professional Masterclass with specialization in classical choral"
+    },
+    "study-studies-perfezionamento": {
+        "it": "È diplomato con lode nel Corso di Perfezionamento e aggiornamento professionale in “Vocalità artistica, Foniatria e Canto” con la tesi “Analisi tecnico stilistica della vocalità a cappella”.",
+        "en": "Graduated with honors from the Advanced Course in Artistic Vocality, Phoniatrics, and Singing with the thesis “Technical and stylistic analysis of a cappella vocality”."
+    },
+    "study-studies-evt": {
+        "it": "Consegue il Certificato EVT Liv.2 (Estill Voice Training)",
+        "en": "Obtained EVT Level 2 Certificate (Estill Voice Training)"
+    },
+    "study-studies-primosoccorso": {
+        "it": "È specialista in “primo soccorso e autotrattamento della voce” accreditato FIPASS e C.S.A.In",
+        "en": "Specialist in 'first aid and self-treatment of the voice', accredited by FIPASS and C.S.A.In"
+    },
+    "study-studies-voicetoteach": {
+        "it": "È un insegnante formato “Voice To Teach”",
+        "en": "Trained as a “Voice To Teach” instructor"
+    },
+    "study-studies-voices-prefix": {
+        "it": "Insegnante e vocal coach formato nel corso professionalizzante VOICES FORMAZIONE con",
+        "en": "Teacher and vocal coach trained in the VOICES professional course with"
+    },
+    "exp-title": {
+        "it": "Attività artistica e professionale",
+        "en": "Artistic and Professional Activity"
+    },
+    "exp-ahq-link": {
+        "it": "AHQ, Albert Hera Quintet, a cappella Exploration",
+        "en": "AHQ, Albert Hera Quintet, a cappella Exploration"
+    },
+    "exp-ahq-desc": {
+        "it": "gruppo vocale",
+        "en": "vocal group"
+    },
+    "exp-10tobroadway-link": {
+        "it": "10 to Broadway",
+        "en": "10 to Broadway"
+    },
+    "exp-10tobroadway-desc": {
+        "it": "gruppo teatrale — vocale",
+        "en": "theatrical — vocal group"
+    },
+    "exp-waytohollywood-link": {
+        "it": "Way To Hollywood",
+        "en": "Way To Hollywood"
+    },
+    "exp-waytohollywood-desc": {
+        "it": "gruppo teatrale — vocale",
+        "en": "theatrical — vocal group"
+    },
+    "exp-stars-link": {
+        "it": "STARS A Pop—Rock Celebration",
+        "en": "STARS A Pop—Rock Celebration"
+    },
+    "exp-stars-desc": {
+        "it": "gruppo teatrale — vocale",
+        "en": "theatrical — vocal group"
+    },
+    "exp-broadwaycelebration-link": {
+        "it": "Broadway Celebration",
+        "en": "Broadway Celebration"
+    },
+    "exp-broadwaycelebration-desc": {
+        "it": "gruppo teatrale — vocale",
+        "en": "theatrical — vocal group"
+    },
+    "exp-comedaccordo-link": {
+        "it": "Comedaccordo",
+        "en": "Comedaccordo"
+    },
+    "exp-comedaccordo-desc": {
+        "it": "gruppo vocale",
+        "en": "vocal group"
+    },
+    "exp-rebelbit-founder-prefix": {
+        "it": "Fondatore del gruppo vocale",
+        "en": "Founder of the vocal group"
+    },
+    "exp-rebelbit-link": {
+        "it": "Rebel Bit",
+        "en": "Rebel Bit"
+    },
+    "exp-voxes-director-prefix": {
+        "it": "Direttore del coro pop",
+        "en": "Director of the pop choir"
+    },
+    "exp-voxes-link": {
+        "it": "VoXes",
+        "en": "VoXes"
+    },
+    "exp-voxes-years": {
+        "it": "dal 2021 al 2025",
+        "en": "from 2021 to 2025"
+    },
+    "exp-vocalmente-director-prefix": {
+        "it": "Direttore Artistico del",
+        "en": "Artistic Director of"
+    },
+    "exp-vocalmente-link": {
+        "it": "Vocalmente Festival",
+        "en": "Vocalmente Festival"
+    },
+    "exp-layers-director-prefix": {
+        "it": "Direttore Artistico del gruppo Vocale",
+        "en": "Artistic Director of the Vocal Group"
+    },
+    "exp-layers-link": {
+        "it": "Layers",
+        "en": "Layers"
+    },
+    "exp-layers-desc": {
+        "it": "Vincitori del Solevoci a cappella Festival 2025 e Backing Vocalist in Notte di Natale di Lucio Corsi",
+        "en": "Winners of Solevoci a cappella Festival 2025 and Backing Vocalist in Lucio Corsi’s Christmas Night"
+    },
+    "pub-title": {
+        "it": "Pubblicazioni",
+        "en": "Publications"
+    },
+    "pub-paperflights-link": {
+        "it": "Paper Flights",
+        "en": "Paper Flights"
+    },
+    "pub-paperflights-desc": {
+        "it": "Rebel Bit, in qualità di cantante e autore",
+        "en": "Rebel Bit, as singer and author"
+    },
+    "pub-aria-link": {
+        "it": "AriA",
+        "en": "AriA"
+    },
+    "pub-aria-desc": {
+        "it": "Albert Hera / Albert Hera Quintet, in qualità di cantante",
+        "en": "Albert Hera / Albert Hera Quintet, as singer"
+    },
+    "pub-remember-link": {
+        "it": "REMEMBER - A Choral Experience",
+        "en": "REMEMBER - A Choral Experience"
+    },
+    "pub-remember-desc": {
+        "it": "Lorenzo Subrizi, in qualità di cantante",
+        "en": "Lorenzo Subrizi, as singer"
+    },
+    "pub-metodo-cpm": {
+        "it": "Pubblicazione metodo tecnico - vocale sulla coralità per il CPM Music Institute (in fase di elaborazione)",
+        "en": "Publication of technical-vocal method on choral work for CPM Music Institute (in preparation)"
+    },
+    "did-title": {
+        "it": "Didattica",
+        "en": "Teaching"
+    },
+    "did-vice-responsabile-prefix": {
+        "it": "Vice Responsabile del Dipartimento Canto al",
+        "en": "Vice Head of the Singing Department at"
+    },
+    "did-cpm-link": {
+        "it": "CPM Music Institute di Milano",
+        "en": "CPM Music Institute of Milan"
+    },
+    "did-docente-tecnica-prefix": {
+        "it": "Docente di Tecnica Vocale, in collaborazione con la formazione dei Rebel Bit, alla",
+        "en": "Vocal Technique Teacher, in collaboration with Rebel Bit training, at"
+    },
+    "did-codarts-link": {
+        "it": "Codarts",
+        "en": "Codarts"
+    },
+    "did-docente-tecnica-suffix": {
+        "it": "al Master Universitario",
+        "en": "at the University Master"
+    },
+    "did-vocal-leadership-link": {
+        "it": "Vocal Leadership",
+        "en": "Vocal Leadership"
+    },
+    "did-docente-shenyang-prefix": {
+        "it": "Docente di Tecnica Vocale al",
+        "en": "Vocal Technique Teacher at"
+    },
+    "did-shenyang-link": {
+        "it": "Conservatorio di Musica di ShenYang",
+        "en": "ShenYang Conservatory of Music"
+    },
+    "did-docente-shenyang-suffix": {
+        "it": "(Liaoning, Cina)",
+        "en": "(Liaoning, China)"
+    },
+    "work-title": {
+        "it": "Disponibile per",
+        "en": "Available for"
+    },
+    "work-masterclass": {
+        "it": "Masterclass di tecnica vocale",
+        "en": "Vocal Technique Masterclass"
+    },
+    "work-coaching": {
+        "it": "Coaching",
+        "en": "Coaching"
+    },
+    "work-coaching-individuali": {
+        "it": "Individuali",
+        "en": "Individual"
+    },
+    "work-coaching-cori": {
+        "it": "A cori",
+        "en": "Choirs"
+    },
+    "work-coaching-gruppi": {
+        "it": "A gruppi vocali",
+        "en": "Vocal groups"
+    },
+    "title-contacts": {
+        "it": "Contatti",
+        "en": "Contact me"
+    },
+    "title-videos": {
+        "it": "Video",
+        "en": "Videos"
+    },
+    "webmaster-text": {
+        "it": "Fatto con",
+        "en": "Made with"
+    },
+    "webmaster-by": {
+        "it": "da",
+        "en": "by"
+    },
+    "teacher-vocal-coach": {
+        "it": "Vocal Coach",
+        "en": "Vocal Coach"
+    },
+    "teacher-didatta": {
+        "it": "Didatta",
+        "en": "Teacher"
+    },
+    "teacher-kings-singers": {
+        "it": "The King’s Singers",
+        "en": "The King’s Singers"
+    },
+    "teacher-cantante": {
+        "it": "Cantante",
+        "en": "Singer"
+    },
+    "teacher-vocal-trainer": {
+        "it": "Vocal Trainer",
+        "en": "Vocal Trainer"
+    },
+    "teacher-logopedista": {
+        "it": "Logopedista",
+        "en": "Speech Therapist"
+    }
+}

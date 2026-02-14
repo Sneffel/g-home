@@ -7,6 +7,10 @@
     Questo sito web è stato sviluppato da Bruno Neureiter
     brunoneureiter.com
 
+
+    Hi!
+    This website was developed by Bruno Neureiter
+
 -->
 
 <head>
@@ -20,7 +24,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link href="css/style.css?v3" rel="stylesheet">
+    <link href="css/style.css?v4" rel="stylesheet">
     <link href="css/font.css?v3" rel="stylesheet">
     <link href="css/reset.css?v3" rel="stylesheet">
     <link href="css/pico.css?v3" rel="stylesheet">
@@ -64,8 +68,12 @@
     </picture>
     <header class=" position-absolute">
         <h1 class="alegreya fw500">Guido Giordana <i class="bi bi-music-note"></i></h1>
-        <h2>Cantante, Vocal Coach e Didatta</h2>
+        <h2 data-i18n="subtitle">Cantante, Vocal Coach e Didatta</h2>
     </header>
+
+    <div class="translations">
+        <img src="img/assets/lucid-uk.webp" alt="Translate English" class="en">
+    </div>
 
     <div class="container box-container" id="container-1">
 
@@ -73,8 +81,9 @@
         <div id="carousel">
             <div id="carousel-items"></div>
             <div class="nav_btns">
-                <button id="prev" disabled>Indietro</button>
-                <button id="next">Avanti</button>
+                <button id="prev" disabled data-i18n="nav-prev">Indietro</button>
+                <button id="next" data-i18n="nav-next">Avanti</button>
+
             </div>
         </div>
 
@@ -83,106 +92,230 @@
 
 
         <div class="box">
-            <h2><i class="bi bi-journal-bookmark-fill"></i> Studi</h2>
+            <h2>
+                <i class="bi bi-journal-bookmark-fill"></i>
+                <span data-i18n="study-studies-title">Studi</span>
+            </h2>
             <ul>
-                <li>Diploma di Scuola Media Superiore, Liceo Coreutico Musicale “Ego Bianchi” di Cuneo</li>
-                <li>Diplomato al CPM Music Institute</li>
-                <li>Diplomato alla “Guildhall School of Music and Drama” di Londra, Masterclass Professionale con
-                    specializzazione in coralità classica</li>
-                <li>È diplomato con lode nel Corso di Perfezionamento e aggiornamento professionale in “Vocalità
-                    artistica, Foniatria e Canto” con la tesi “Analisi tecnico stilistica della vocalità a cappella”.
+                <li>
+                    <span data-i18n="study-studies-liceo">
+                        Diploma di Scuola Media Superiore, Liceo Coreutico Musicale “Ego Bianchi” di Cuneo
+                    </span>
                 </li>
-                <li>Consegue il Certificato EVT Liv.2 (Estill Voice Training)</li>
-                <li>È specialista in “primo soccorso e autotrattamento della voce” accreditato FIPASS e C.S.A.In</li>
-                <li>È un insegnante formato “Voice To Teach”</li>
-                <li>Insegnante e vocal coach formato nel corso professionalizzante VOICES FORMAZIONE con <a
-                        href="https://www.instagram.com/eleonora_bruni_voices/">Eleonora Bruni</a></li>
+                <li>
+                    <span data-i18n="study-studies-cpm">
+                        Diplomato al CPM Music Institute
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-guildhall">
+                        Diplomato alla “Guildhall School of Music and Drama” di Londra, Masterclass Professionale con
+                        specializzazione in coralità classica
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-perfezionamento">
+                        È diplomato con lode nel Corso di Perfezionamento e aggiornamento professionale in “Vocalità
+                        artistica, Foniatria e Canto” con la tesi “Analisi tecnico stilistica della vocalità a
+                        cappella”.
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-evt">
+                        Consegue il Certificato EVT Liv.2 (Estill Voice Training)
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-primosoccorso">
+                        È specialista in “primo soccorso e autotrattamento della voce” accreditato FIPASS e C.S.A.In
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-voicetoteach">
+                        È un insegnante formato “Voice To Teach”
+                    </span>
+                </li>
+                <li>
+                    <span data-i18n="study-studies-voices-prefix">
+                        Insegnante e vocal coach formato nel corso professionalizzante VOICES FORMAZIONE con
+                    </span>
+                    <a href="https://www.instagram.com/eleonora_bruni_voices/">
+                        Eleonora Bruni
+                    </a>
+                </li>
             </ul>
+        </div>
 
-        </div>
+
         <div class="box">
-            <h2><i class="bi bi-briefcase"></i> Attività artistica e professionale</h2>
+            <h2>
+                <i class="bi bi-briefcase"></i>
+                <span data-i18n="exp-title">Attività artistica e professionale</span>
+            </h2>
             <ul>
-                <li>“<a href="https://www.alberthera.com">AHQ, Albert Hera Quintet, a cappella Exploration</a>”, gruppo
-                    vocale</li>
-                <li>“<a href="https://www.facebook.com/10toBroadway">10 to Broadway</a>”, gruppo teatrale — vocale</li>
-                <li>“<a href="https://www.facebook.com/WayToHollywoodBand">Way To Hollywood</a>”, gruppo teatrale —
-                    vocale</li>
-                <li>“<a href="https://www.facebook.com/STARSaPopRockCelebration">STARS A Pop—Rock Celebration</a>”,
-                    gruppo teatrale — vocale</li>
-                <li>“<a href="https://www.facebook.com/BroadwayCelebration">Broadway Celebration</a>”, gruppo teatrale —
-                    vocale</li>
-                <li>“<a href="https://www.facebook.com/Comedaccordo">Comedaccordo</a>”, gruppo vocale</li>
-                <li>Fondatore del gruppo vocale “<a href="http://www.rebelbitmusic.com">Rebel Bit</a>”</li>
-                <li>Direttore del coro pop “<a href="https://fondazionefossanomusica.it/it/pagine/voxes">VoXes</a>” dal
-                    2021 al 2025</li>
-                <li>Direttore Artistico del “<a href="https://www.vocalmente.net/it/">Vocalmente Festival</a>”</li>
-                <li>Direttore Artistico del gruppo Vocale “<a href="https://www.instagram.com/layersvocals/">Layers</a>”
+                <li>
+                    “<a href="https://www.alberthera.com" data-i18n="exp-ahq-link">
+                        AHQ, Albert Hera Quintet, a cappella Exploration
+                    </a>”,
+                    <span data-i18n="exp-ahq-desc">gruppo vocale</span>
+                </li>
+                <li>
+                    “<a href="https://www.facebook.com/10toBroadway" data-i18n="exp-10tobroadway-link">
+                        10 to Broadway
+                    </a>”,
+                    <span data-i18n="exp-10tobroadway-desc">gruppo teatrale — vocale</span>
+                </li>
+                <li>
+                    “<a href="https://www.facebook.com/WayToHollywoodBand" data-i18n="exp-waytohollywood-link">
+                        Way To Hollywood
+                    </a>”,
+                    <span data-i18n="exp-waytohollywood-desc">gruppo teatrale — vocale</span>
+                </li>
+                <li>
+                    “<a href="https://www.facebook.com/STARSaPopRockCelebration" data-i18n="exp-stars-link">
+                        STARS A Pop—Rock Celebration
+                    </a>”,
+                    <span data-i18n="exp-stars-desc">gruppo teatrale — vocale</span>
+                </li>
+                <li>
+                    “<a href="https://www.facebook.com/BroadwayCelebration" data-i18n="exp-broadwaycelebration-link">
+                        Broadway Celebration
+                    </a>”,
+                    <span data-i18n="exp-broadwaycelebration-desc">gruppo teatrale — vocale</span>
+                </li>
+                <li>
+                    “<a href="https://www.facebook.com/Comedaccordo" data-i18n="exp-comedaccordo-link">
+                        Comedaccordo
+                    </a>”,
+                    <span data-i18n="exp-comedaccordo-desc">gruppo vocale</span>
+                </li>
+                <li>
+                    <span data-i18n="exp-rebelbit-founder-prefix">Fondatore del gruppo vocale</span>
+                    “<a href="http://www.rebelbitmusic.com" data-i18n="exp-rebelbit-link">
+                        Rebel Bit
+                    </a>”
+                </li>
+                <li>
+                    <span data-i18n="exp-voxes-director-prefix">Direttore del coro pop</span>
+                    “<a href="https://fondazionefossanomusica.it/it/pagine/voxes" data-i18n="exp-voxes-link">
+                        VoXes
+                    </a>”
+                    <span data-i18n="exp-voxes-years">dal 2021 al 2025</span>
+                </li>
+                <li>
+                    <span data-i18n="exp-vocalmente-director-prefix">Direttore Artistico del</span>
+                    “<a href="https://www.vocalmente.net/it/" data-i18n="exp-vocalmente-link">
+                        Vocalmente Festival
+                    </a>”
+                </li>
+                <li>
+                    <span data-i18n="exp-layers-director-prefix">Direttore Artistico del gruppo Vocale</span>
+                    “<a href="https://www.instagram.com/layersvocals/" data-i18n="exp-layers-link">
+                        Layers
+                    </a>”,
+                    <span data-i18n="exp-layers-desc">
+                        Vincitori del Solevoci a cappella Festival 2025 e Backing Vocalist in Notte di Natale di Lucio
+                        Corsi
+                    </span>
                 </li>
             </ul>
         </div>
+
         <div class="box">
             <h2><i class="bi bi-bookmark"></i> Masterclass</h2>
             <ul>
-                <li>Mary Setrakian (Vocal Coach)</li>
-                <li>Marco Mustaro (Didatta)</li>
-                <li>Erika Biavati (Didatta)</li>
-                <li>Eleonora Bruni (Didatta)</li>
-                <li>Francesco Mecorio (Vocal Coach)</li>
-                <li>Bob Chilcott (The King&rsquo;s Singers)</li>
-                <li>Bob Stoloff (Cantante)</li>
-                <li>Angelo Fernando Galeano (Vocal Trainer)</li>
-                <li>Ceris Deverill (Vocal Trainer)</li>
-                <li>Philip Sutton (Vocal Trainer)</li>
-                <li>Prof. Alfonso Boragan Torre (Didatta)</li>
-                <li>Prof. Franco Fussi (Didatta)</li>
-                <li>Prof. Alfonso Gianluca Gucciardo (Didatta)</li>
-                <li>Alejandro Saorin Martinez (Didatta)</li>
-                <li>Elisabetta Rosa (Didatta)</li>
-                <li>Stefano Anelli (Didatta)</li>
-                <li>Fiammetta Fanari (Logopedista)</li>
-                <li>Dario Strangis (Logopedista)</li>
+                <li>Mary Setrakian (<span data-i18n="teacher-vocal-coach">Vocal Coach</span>)</li>
+                <li>Marco Mustaro (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Erika Biavati (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Eleonora Bruni (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Francesco Mecorio (<span data-i18n="teacher-vocal-coach">Vocal Coach</span>)</li>
+                <li>Bob Chilcott (<span data-i18n="teacher-kings-singers">The King’s Singers</span>)</li>
+                <li>Bob Stoloff (<span data-i18n="teacher-cantante">Cantante</span>)</li>
+                <li>Angelo Fernando Galeano (<span data-i18n="teacher-vocal-trainer">Vocal Trainer</span>)</li>
+                <li>Ceris Deverill (<span data-i18n="teacher-vocal-trainer">Vocal Trainer</span>)</li>
+                <li>Philip Sutton (<span data-i18n="teacher-vocal-trainer">Vocal Trainer</span>)</li>
+                <li>Prof. Alfonso Boragan Torre (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Prof. Franco Fussi (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Prof. Alfonso Gianluca Gucciardo (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Alejandro Saorin Martinez (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Elisabetta Rosa (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Stefano Anelli (<span data-i18n="teacher-didatta">Didatta</span>)</li>
+                <li>Fiammetta Fanari (<span data-i18n="teacher-logopedista">Logopedista</span>)</li>
+                <li>Dario Strangis (<span data-i18n="teacher-logopedista">Logopedista</span>)</li>
             </ul>
+
 
         </div>
     </div>
     <div class="container-fluid px-0 position-sticky red">
         <img id="hero2" class="hero auto-hero" src="img/DSCF2235.webp" alt="Guido Giordana">
-        <div class="container pt-1 position-relative  box-container">
+        <div class="container pt-1 position-relative box-container">
             <div class="box">
-                <h2><i class="bi bi-book"></i> Pubblicazioni</h2>
+                <h2>
+                    <i class="bi bi-book"></i>
+                    <span data-i18n="pub-title">Pubblicazioni</span>
+                </h2>
                 <ul>
-                    <li>“<a href="https://open.spotify.com/album/6oGUnPwruyEghmxtIrupnw">Paper Flights</a>”, Rebel
-                        Bit,
-                        in qualità di cantante e autore</li>
-                    <li>“<a href="https://www.alberthera.com/prodotto/aria/">AriA</a>”, Albert Hera / Albert Hera
-                        Quintet, in qualità di cantante</li>
-                    <li>“<a href="https://open.spotify.com/album/25hz3XjBwHsjkyyJmRB4fU?si=dSB6pgQ-SK6HminW0fhDsA">REMEMBER
-                            - A Choral Experience</a>”, Lorenzo Subrizi, in qualità di cantante</li>
-                    <li>Pubblicazione metodo tecnico - vocale sulla coralità per il CPM Music Institute (in fase di
-                        elaborazione)</li>
-                </ul>
-
-            </div>
-            <div class="box">
-                <h2><i class="bi bi-lightbulb"></i> Didattica</h2>
-                <ul>
-                    <li>Vice Responsabile del Dipartimento Canto al “<a
-                            href="https://www.cpm.it/docente/1095/corsi-musica-milano-docente-guido-giordana">CPM
-                            Music
-                            Institute di Milano</a>”</li>
-                    <li>Docente di Tecnica Vocale, in collaborazione con la formazione dei Rebel Bit, alla <a
-                            href="https://www.codarts.nl">Codarts</a> al Master Universitario “<a
-                            href="https://www.vocalleadership.nl">Vocal Leadership</a>”
+                    <li>
+                        “<a href="https://open.spotify.com/album/6oGUnPwruyEghmxtIrupnw"
+                            data-i18n="pub-paperflights-link">
+                            Paper Flights
+                        </a>”,
+                        <span data-i18n="pub-paperflights-desc">Rebel Bit, in qualità di cantante e autore</span>
                     </li>
                     <li>
-                        Docente di Tecnica Vocale al <a href="https://www.sycm.edu.cn/eng/">Conservatorio di Musica di
+                        “<a href="https://www.alberthera.com/prodotto/aria/" data-i18n="pub-aria-link">
+                            AriA
+                        </a>”,
+                        <span data-i18n="pub-aria-desc">Albert Hera / Albert Hera Quintet, in qualità di cantante</span>
+                    </li>
+                    <li>
+                        “<a href="https://open.spotify.com/album/25hz3XjBwHsjkyyJmRB4fU?si=dSB6pgQ-SK6HminW0fhDsA"
+                            data-i18n="pub-remember-link">
+                            REMEMBER - A Choral Experience
+                        </a>”,
+                        <span data-i18n="pub-remember-desc">Lorenzo Subrizi, in qualità di cantante</span>
+                    </li>
+                    <li>
+                        <span data-i18n="pub-metodo-cpm">
+                            Pubblicazione metodo tecnico - vocale sulla coralità per il CPM Music Institute (in fase di
+                            elaborazione)
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h2>
+                    <i class="bi bi-lightbulb"></i>
+                    <span data-i18n="did-title">Didattica</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span data-i18n="did-vice-responsabile-prefix">Vice Responsabile del Dipartimento Canto
+                            al</span>
+                        “<a href="https://www.cpm.it/docente/1095/corsi-musica-milano-docente-guido-giordana"
+                            data-i18n="did-cpm-link">
+                            CPM Music Institute di Milano
+                        </a>”
+                    </li>
+                    <li>
+                        <span data-i18n="did-docente-tecnica-prefix">Docente di Tecnica Vocale, in collaborazione con la
+                            formazione dei Rebel Bit, alla</span>
+                        <a href="https://www.codarts.nl" data-i18n="did-codarts-link">Codarts</a>
+                        <span data-i18n="did-docente-tecnica-suffix">al Master Universitario</span>
+                        “<a href="https://www.vocalleadership.nl" data-i18n="did-vocal-leadership-link">Vocal
+                            Leadership</a>”
+                    </li>
+                    <li>
+                        <span data-i18n="did-docente-shenyang-prefix">Docente di Tecnica Vocale al</span>
+                        <a href="https://www.sycm.edu.cn/eng/" data-i18n="did-shenyang-link">Conservatorio di Musica di
                             ShenYang</a>
-                        (Liaoning, Cina)
+                        <span data-i18n="did-docente-shenyang-suffix">(Liaoning, Cina)</span>
                     </li>
                 </ul>
             </div>
         </div>
+
     </div>
 
     <section id="album-container-fluid" class="container-fluid p-0 position-sticky bg-black overflow-hidden ">
@@ -204,21 +337,25 @@
     </section>
     <section class="container-fluid px-0 pt-5 position-sticky bg-black h-auto">
         <div class="mt-0 mt-sm-3 container py-2 position-sticky bg-black">
-            <h2 class="mb-2 mb-sm-4 mb-md-3 text-center text-sm-start">Disponibile per</h2>
+            <h2 class="mb-2 mb-sm-4 mb-md-3 text-center text-sm-start" data-i18n="work-title">
+                Disponibile per
+            </h2>
             <div class="m-auto fs-5 mb-5 d-flex justify-content-center">
                 <ul class="rectangle">
-                    <li>Masterclass di tecnica vocale</li>
-                    <li>Coaching
+                    <li data-i18n="work-masterclass">Masterclass di tecnica vocale</li>
+                    <li>
+                        <span data-i18n="work-coaching">Coaching</span>
                         <ul>
-                            <li>Individuali</li>
-                            <li>A cori</li>
-                            <li>A gruppi vocali</li>
+                            <li data-i18n="work-coaching-individuali">Individuali</li>
+                            <li data-i18n="work-coaching-cori">A cori</li>
+                            <li data-i18n="work-coaching-gruppi">A gruppi vocali</li>
                         </ul>
                     </li>
                 </ul>
             </div>
 
-            <h2 class="text-center text-sm-start mb-2 mb-sm-4 mb-md-3">Contatti</h2>
+
+            <h2 class="text-center text-sm-start mb-2 mb-sm-4 mb-md-3" data-i18n="title-contacts">Contatti</h2>
             <p class="text-center alegreya fw500 fs-2 mb-4">
                 <a id="email" style="user-select: all  !important;background-color: transparent;"
                     class="user-select-text" href="mailto:guidogiordana89@gmail.com?subject=Ciao!">
@@ -229,7 +366,8 @@
 
 
             <details class="yt-videos pico">
-                <summary class="text-center text-sm-start p-3 ps-3 ps-sm-0 h2 text-white">Video</summary>
+                <summary class="text-center text-sm-start p-3 ps-3 ps-sm-0 h2 text-white" data-i18n="title-videos">Video
+                </summary>
 
 
                 <div class="iframe-container">
@@ -278,37 +416,41 @@
 
         <div id="made_with" class="w-100 text-end pe-2"
             style="background: linear-gradient(to right, black, rgb(18, 18, 18));">
-            Fatto con <span class="text-danger">❤</span> da <a href="https://brunoneureiter.com">Bruno Neureiter</a>
+            <span data-i18n="webmaster-text">Fatto con</span>
+            <span class="text-danger">❤</span>
+            <span data-i18n="webmaster-by">da</span>
+            <a href="https://brunoneureiter.com">Bruno Neureiter</a>
         </div>
+
 
     </section>
     <script>
-        // autoscroll
-        const time_wait = 3 * 1000
-        const scroll_duration = 1500;
-        setTimeout(function () {
-            if (!window.pageYOffset) {
-                const container = document.getElementById('container-1');
-                const targetY = container.getBoundingClientRect().top + window.pageYOffset;
-                const startingY = window.pageYOffset;
-                const diff = targetY - startingY;
-                let start;
-                function easeOutCubic(t) {
-                    return (--t) * t * t + 1;
-                }
-                function step(timestamp) {
-                    if (!start) start = timestamp;
-                    const timeElapsed = timestamp - start;
-                    const percentage = Math.min(timeElapsed / scroll_duration, 1);
-                    const easedPercentage = easeOutCubic(percentage);
-                    window.scrollTo(0, startingY + diff * easedPercentage);
-                    if (timeElapsed < scroll_duration) {
-                        window.requestAnimationFrame(step);
-                    }
-                }
-                window.requestAnimationFrame(step);
-            }
-        }, time_wait);
+        // // autoscroll
+        // const time_wait = 3 * 1000
+        // const scroll_duration = 1500;
+        // setTimeout(function () {
+        //     if (!window.pageYOffset) {
+        //         const container = document.getElementById('container-1');
+        //         const targetY = container.getBoundingClientRect().top + window.pageYOffset;
+        //         const startingY = window.pageYOffset;
+        //         const diff = targetY - startingY;
+        //         let start;
+        //         function easeOutCubic(t) {
+        //             return (--t) * t * t + 1;
+        //         }
+        //         function step(timestamp) {
+        //             if (!start) start = timestamp;
+        //             const timeElapsed = timestamp - start;
+        //             const percentage = Math.min(timeElapsed / scroll_duration, 1);
+        //             const easedPercentage = easeOutCubic(percentage);
+        //             window.scrollTo(0, startingY + diff * easedPercentage);
+        //             if (timeElapsed < scroll_duration) {
+        //                 window.requestAnimationFrame(step);
+        //             }
+        //         }
+        //         window.requestAnimationFrame(step);
+        //     }
+        // }, time_wait);
 
 
 
@@ -552,6 +694,27 @@
         });
 
         loadData(currentPage);
+    </script>
+
+
+    <script>
+        async function translate(lang) {
+            const res = await fetch('js/translate.json');
+            const translations = await res.json();
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    el.textContent = translations[key][lang];
+                }
+            });
+        }
+
+        document.querySelector('.translations .en').addEventListener('click', function () {
+            translate('en');
+            this.style.opacity = 0;
+        });
+
+
     </script>
 </body>
 
